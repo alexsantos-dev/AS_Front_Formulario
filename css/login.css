@@ -1,4 +1,3 @@
-/* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -28,7 +27,6 @@ form {
     margin-bottom: 20px;
     position: relative;
 
-    /* Espaço entre o formulário e a mensagem "Não tem conta?" */
 }
 
 .create-account {
@@ -49,7 +47,6 @@ h2 {
     color: #333;
 }
 
-/* Rótulos e Entradas de Texto */
 label {
     display: block;
     margin-bottom: 8px;
@@ -66,7 +63,6 @@ select {
     box-sizing: border-box;
 }
 
-/* Botão de Envio */
 
 #Login {
     background-color: #4caf50;
@@ -78,7 +74,6 @@ select {
     background-color: #45a049;
 }
 
-/* Mensagens de Erro */
 .alert {
     background-color: #f44336;
     color: white;
@@ -88,7 +83,6 @@ select {
     border-radius: 4px;
 }
 
-/* Responsividade */
 @media only screen and (max-width: 600px) {
     form {
         width: 300px;
