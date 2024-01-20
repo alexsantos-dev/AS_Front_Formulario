@@ -12,20 +12,18 @@
         <h2>Redefinir Senha</h2>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-        <span
-          id="error-email"
-          class="error-message"
-          style="display: none;"
-        ></span>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="email@gmail.com"
+        />
+        <span id="error-email" class="error-message"></span>
 
         <label for="newPassword">Nova Senha:</label>
         <input type="password" id="newPassword" name="newPassword" required />
-        <span
-          id="error-newPassword"
-          class="error-message"
-          style="display: none;"
-        ></span>
+        <span id="error-newPassword" class="error-message"></span>
 
         <label for="confirmPassword">Confirmar Senha:</label>
         <input
@@ -34,19 +32,11 @@
           name="confirmPassword"
           required
         />
-        <span
-          id="error-confirmPassword"
-          class="error-message"
-          style="display: none;"
-        ></span>
+        <span id="error-confirmPassword" class="error-message"></span>
 
         <input type="submit" value="Redefinir Senha" id="resetPassword" />
-        <span
-          id="success-message"
-          class="success"
-          style="display: none;"
-        ></span>
-        <span id="error-message" class="alert" style="display: none;"></span>
+        <span id="success-message" class="success"></span>
+        <span id="error-message" class="error-message"></span>
       </form>
     </div>
 
@@ -72,14 +62,19 @@
           );
           const errorMessageElement = document.getElementById("error-message");
 
+          hideError(errorEmailElement);
+          hideError(errornewPasswordElement);
+          hideError(errorconfirmPasswordElement);
+          hideError(errorMessageElement);
+          hideSuccess(successMessageElement);
+
           if (!email || !newPassword || !confirmPassword) {
             showError("Todos os campos são obrigatórios", errorMessageElement);
             return;
           }
 
           if (newPassword !== confirmPassword) {
-            showError("As senhas não coincidem", errornewPasswordElement);
-            showError("As senhas não coincidem", errorconfirmPasswordElement);
+            showError("As senhas não coincidem", errorMessageElement);
             return;
           }
 
@@ -100,12 +95,9 @@
               throw new Error(data.error || "Erro ao redefinir a senha");
             }
 
-            successMessageElement.innerText = "Senha redefinida com sucesso!";
-            successMessageElement.style.display = "block";
-            errorMessageElement.style.display = "none";
+            showSuccess("Senha redefinida com sucesso!", successMessageElement);
           } catch (error) {
             showError(error.message, errorMessageElement);
-            successMessageElement.style.display = "none";
           }
         });
 
@@ -131,6 +123,21 @@
       function showError(message, errorElement) {
         errorElement.innerText = message;
         errorElement.style.display = "block";
+      }
+
+      function hideError(errorElement) {
+        errorElement.innerText = "";
+        errorElement.style.display = "none";
+      }
+
+      function showSuccess(message, successElement) {
+        successElement.innerText = message;
+        successElement.style.display = "block";
+      }
+
+      function hideSuccess(successElement) {
+        successElement.innerText = "";
+        successElement.style.display = "none";
       }
     </script>
   </body>

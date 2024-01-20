@@ -48,24 +48,23 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #62cc67;
 }
 
-.error-message, .success {
-    padding: 10px;
-    margin-bottom: 10px;
+.error-message,
+.success {
     text-align: center;
-    border-radius: 4px;
 }
 
 .error-message {
     color: #e53935;
+    margin-bottom: 10px;
 }
 
 .success {
     color: #45a049;
+    margin-bottom: 10px;
 }
-
 
 @media only screen and (max-width: 600px) {
     form {
